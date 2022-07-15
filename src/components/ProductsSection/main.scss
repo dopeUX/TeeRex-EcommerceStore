@@ -1,0 +1,30 @@
+.products-section{
+   margin-left: 1.5rem;
+   text-align: left;
+   width: 70%;
+   display: flex;
+   flex-direction: column;
+   padding-top: 11.5em;
+   h1{
+     width:fit-content;
+     font-size: 2rem;
+     margin-top: .2rem;
+   }
+
+   .products-section-items-grid{
+      display:block;
+   }
+}
+
+@media only screen and (min-width:870px){
+  .products-section{
+    padding-top: 6.5em;
+  }
+}
+
+@media only screen and (min-width:1022px){
+    .products-section{
+        margin-left: 20.5rem;
+        display: flex;
+    }
+}

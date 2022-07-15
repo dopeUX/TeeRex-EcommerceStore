@@ -1,0 +1,43 @@
+.filter-card{
+    display: block;
+
+    h4{
+        margin: 0;
+        margin-bottom: .5rem;
+        margin-top: .5rem;
+        padding: 0;
+        color: #8A8A8A;
+        font-weight: 500;
+    }
+
+    .filter-card-single-item{
+        display: flex;
+    .filter-card-single-item-desc{
+        margin: .7rem 0;
+        cursor: pointer;
+        color:#000000;
+    }
+
+    .filter-card-single-item-dot{
+        width: 5px;
+        height: 5px;
+        margin: auto 1rem;
+        border-radius: 50%;
+        opacity: 0;
+        background-color: #D43636;
+    }
+
+    .active{
+        color: #D43636;
+    }
+
+    .inactive{
+        color:#000000;
+    }
+
+    .active-dot{
+        opacity: 100%;
+    }
+  }
+}
+

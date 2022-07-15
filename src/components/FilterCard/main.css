@@ -1,0 +1,46 @@
+.filter-card {
+  display: block;
+}
+
+.filter-card h4 {
+  margin: 0;
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+  padding: 0;
+  color: #8A8A8A;
+  font-weight: 500;
+}
+
+.filter-card .filter-card-single-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.filter-card .filter-card-single-item .filter-card-single-item-desc {
+  margin: .7rem 0;
+  cursor: pointer;
+  color: #000000;
+}
+
+.filter-card .filter-card-single-item .filter-card-single-item-dot {
+  width: 5px;
+  height: 5px;
+  margin: auto 1rem;
+  border-radius: 50%;
+  opacity: 0;
+  background-color: #D43636;
+}
+
+.filter-card .filter-card-single-item .active {
+  color: #D43636;
+}
+
+.filter-card .filter-card-single-item .inactive {
+  color: #000000;
+}
+
+.filter-card .filter-card-single-item .active-dot {
+  opacity: 100%;
+}
+/*# sourceMappingURL=main.css.map */

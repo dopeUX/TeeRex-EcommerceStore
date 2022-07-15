@@ -1,0 +1,33 @@
+.filter {
+  display: none;
+  margin: 0 auto 0 1.7rem;
+  float: left;
+  padding-top: 6.5em;
+}
+
+.filter h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+}
+
+.filter .filter-sections {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 1.2rem;
+  padding: 1rem 7rem 2rem 1rem;
+  margin-top: 1rem;
+  background-color: #F2F2F2;
+}
+
+@media only screen and (min-width: 1022px) {
+  .filter {
+    display: block;
+    position: fixed;
+  }
+}
+/*# sourceMappingURL=main.css.map */
