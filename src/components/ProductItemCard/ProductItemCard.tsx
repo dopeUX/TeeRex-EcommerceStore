@@ -16,6 +16,8 @@ const ProductItemCard: FC<ProductItemCardProps> = ({
   productImage,
   productQuantity,
 }) => {
+  function onAddTocartListener() {}
+
   return (
     <div className="product-item-card">
       <img src={productImage} alt="" />
@@ -24,7 +26,13 @@ const ProductItemCard: FC<ProductItemCardProps> = ({
         <h2>Rs.{productPrice}</h2>
       </div>
 
-      <button>Add to cart</button>
+      <button
+        onClick={() => {
+          onAddTocartListener();
+        }}
+      >
+        Add to cart
+      </button>
     </div>
   );
 };

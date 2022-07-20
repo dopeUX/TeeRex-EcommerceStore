@@ -2,12 +2,15 @@ import React from "react";
 import logo from "./logo.svg";
 import "./styles/main.css";
 import HomePage from "./components/HomePage/HomePage";
+import GlobalStateProvider from "./reducers/globalStateProvider";
 
 function App() {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <GlobalStateProvider>
+      <div className="App">
+        <HomePage />
+      </div>
+    </GlobalStateProvider>
   );
 }
 
