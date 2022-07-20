@@ -1,16 +1,27 @@
-import { useReducer, useMemo } from "react";
-import combineReducers from "./combineReducers";
+import { useReducer } from "react";
 
-const countReducer = (state, action)=>{
+const appReducer = (state, action)=>{
     switch(action.type){
   
       case 'INCREMENT':
         return {
-            count:state.count++
+           ...state,
+           count:state.count++
         }
       case 'DECREMENT':
         return {
+            ...state,
             count:state.count--
+        }
+      case 'CART_ITEMS':
+        return {
+            ...state,
+            cartItems:state.cartItems.push(action.payload)
+        }
+      case 'SEARCH_QUERY':
+        return {
+            ...state,
+            searchQuery:action.payload
         }
       default:{
         return state;
@@ -18,29 +29,16 @@ const countReducer = (state, action)=>{
     }
 }
 
-const cartReducer = (state, action) =>{
-    switch(action.type) {
-      case 'Add':
-        return {
-          state:[]
-        }
-      default:{
-        return state;
-      }  
-    }
-}
 
 const initialState = {
   count:3,
-  cartItem:[]
+  searchQuery:'',
+  cartItems:[]
 }
 
 const useGlobalState = () =>{
-    // const [globalState1, globalDispatch1] = useReducer(countReducer, initialState);
-    // const [globalState2, globalDispatch2] = useReducer(countReducer, initialState);
-    const rootReducer = combineReducers(countReducer, cartReducer)
-    const [state, dispatch] = useReducer(rootReducer, initialState);
-    const store = useMemo(() => [state, dispatch], [state]);
+
+    const [state, dispatch] = useReducer(appReducer, initialState);
     
     return {state, dispatch};
 }
