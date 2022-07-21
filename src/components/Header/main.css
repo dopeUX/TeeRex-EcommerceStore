@@ -40,6 +40,7 @@ header {
 .header-top .header-cart-icon {
   width: 55px;
   height: 55px;
+  cursor: pointer;
 }
 
 .header-search-section {
@@ -73,6 +74,7 @@ header {
 .header-search-section img {
   width: 50px;
   height: 50px;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 870px) {
@@ -105,10 +107,10 @@ header {
 
 @media only screen and (min-width: 1022px) {
   .header-search-section {
-    width: 95%;
+    width: 70%;
   }
   .header-search-section .search {
-    width: 500px;
+    width: 300px;
   }
   .header-search-section img {
     display: none;

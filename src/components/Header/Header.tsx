@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import "./main.css";
 import Context from "../../reducers/context";
-import GlobalStateProvider from "../../reducers/globalStateProvider";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   // const { globalState, globalDispatch } = useContext(Context);
@@ -14,9 +14,10 @@ export default function Header() {
     <header>
       <section className="header-top">
         <h1>TeeRex</h1>
-        <img className="header-cart-icon" src="assets/cart.svg" alt="" />
+        <Link to="/cart">
+          <img className="header-cart-icon" src="assets/cart.svg" alt="" />
+        </Link>
       </section>
-
       <section className="header-search-section">
         <input
           type="text"
@@ -31,8 +32,8 @@ export default function Header() {
         />
         <img src="assets/filter.svg" alt="" />
       </section>
-
-      <button
+      {/* ///FOR debugging ------ */}
+      {/* <button
         onClick={() => {
           dispatch({
             type: "DECREMENT",
@@ -41,8 +42,7 @@ export default function Header() {
       >
         Click
       </button>
-
-      <h1>{state?.count}</h1>
+      <h1>{state?.count}</h1> */}
     </header>
   );
 }

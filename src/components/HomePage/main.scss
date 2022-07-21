@@ -5,18 +5,3 @@
    box-sizing: border-box;
 }
 
-.homepage-divider{
-    width: 2px;
-    height: 100vh;
-    z-index: 2;
-    display: none;
-    position: fixed;
-    margin: 0 auto 0 17rem;
-    background-color: #D7D6D6;
-}
-
-@media only screen and (min-width:1022px){
-    .homepage-divider{
-        display: block;
-    }
-}

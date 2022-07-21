@@ -11,6 +11,7 @@ interface ProductItem {
   price: number;
   imageURL: imageURL;
   quantity: number;
+  id: number;
 }
 
 const ProductsSection: FC<any> = () => {
@@ -22,7 +23,7 @@ const ProductsSection: FC<any> = () => {
         console.log(res);
         setProductItems(res);
         dispatch({
-          type: "CART_ITEMS",
+          type: "PRODUCT_ITEMS_INIT",
           payload: res,
         });
       })
@@ -31,11 +32,15 @@ const ProductsSection: FC<any> = () => {
       });
   }, []); ///=> called only on initial render ----
 
+  useEffect(() => {
+    console.log(state?.cartItems);
+  });
+
   return (
     <section className="products-section">
       <h1>Shop</h1>
       <div className="products-section-items-grid">
-        {state?.cartItems
+        {state?.productItems
           .filter(
             (item: any) =>
               item.name
@@ -56,6 +61,7 @@ const ProductsSection: FC<any> = () => {
                 productPrice={item.price}
                 productImage={item.imageURL}
                 productQuantity={item.quantity}
+                productId={item.id}
               />
             );
           })}
