@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
+import Context from "../../store/context";
 import FilterCard from "../FilterCard/FilterCard";
 
 interface filterItems {
@@ -10,6 +11,7 @@ interface FilterCardItemsProps {
 }
 
 const FilterCardItems: FC<FilterCardItemsProps> = ({ filterItems }) => {
+  const { state, dispatch }: any = useContext(Context);
   return (
     <div className="filter-card-items">
       {filterItems.map((item, index) => {
@@ -18,6 +20,7 @@ const FilterCardItems: FC<FilterCardItemsProps> = ({ filterItems }) => {
             key={index}
             filterTitle={item.title}
             filterItems={item.items}
+            onClick={() => {}}
           />
         );
       })}

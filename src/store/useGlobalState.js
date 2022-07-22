@@ -17,7 +17,8 @@ const appReducer = (state, action)=>{
       case 'PRODUCT_ITEMS_INIT':
         return {
             ...state,
-            productItems:action.payload
+            productItems:action.payload,
+            filteredItems:action.payload
         }
       case 'ADD_ITEM_TO_CART':
         //state.cartItems.push(action.payload)
@@ -37,11 +38,20 @@ const appReducer = (state, action)=>{
           ...state,
          cartItems:[...state.cartItems]
         }   
-      case 'CART_TOTAL':
+      case 'FILTER_PRODUCT_ITEMS':
+        // state.activeFilters[action.payload.filterTitle]=action.payload.filter;
+        // const filterType = action.payload.filterType;
         return {
           ...state,
-          cartTotal:action.payload
+          // activeFilters:state.activeFilters,
+          filteredItems:state.productItems.filter(item=>item.color.toLowerCase().includes(state.activeFilters.color.toLowerCase())).filter(item=>item.gender.toLowerCase().includes(state.activeFilters.gender.toLowerCase())).filter(item=>item.type.toLowerCase().includes(state.activeFilters.type.toLowerCase()))
         }  
+      case 'UPDATE_ACTIVE_FILTER' :
+          let filterType = action.payload.filterType;
+          state.activeFilters[filterType] = action.payload.filter
+          return {
+            ...state,
+          }
       case 'SEARCH_QUERY':
         return {
             ...state,
@@ -58,7 +68,13 @@ const initialState = {
   count:3,
   searchQuery:'',
   productItems:[],
+  filteredItems:[],
   cartItems:[],
+  activeFilters:{
+    color:'',
+    gender:'',
+    type:''
+  }
 }
 
 const useGlobalState = () =>{

@@ -1,15 +1,23 @@
-import React, { FC, useContext, useEffect, useMemo, useState } from "react";
+import React, {
+  FC,
+  useContext,
+  useEffect,
+  useRef,
+  useMemo,
+  useState,
+} from "react";
 import Context from "../../store/context";
 import CartItemcard from "../CartItemCard/CartItemCard";
 import "./main.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import deleteItemFromCart from "../../functions/deleteItemFromCart";
 import totalPriceCalculator from "../../functions/totalPriceCalculator";
 
 const CartPage: FC<any> = (props) => {
   const { state, dispatch }: any = useContext(Context);
+  const emptyCartRef: any = useRef();
   const nav = useNavigate();
-  const [total, setTotal] = useState(totalPriceCalculator(state?.cartItems));
+  // const [total, setTotal] = useState(totalPriceCalculator(state?.cartItems));
   type url = string;
 
   interface CartItemcardProps {
@@ -21,15 +29,16 @@ const CartPage: FC<any> = (props) => {
     productId: number;
   }
 
-  const cartTotal = useMemo(() => {
-    console.log(state?.cartItems);
-    setTotal(totalPriceCalculator(state?.cartItems));
-  }, [state?.cartItems]);
+  const cartTotal: any = useMemo(
+    () => totalPriceCalculator(state?.cartItems),
+    [state?.cartItems],
+  );
 
   useEffect(() => {
-    // updateCartTotal(dispatch, state?.cartItems);
-    // setTotal()
-  }, []);
+    if (state?.cartItems.length === 0) {
+      emptyCartRef.current.style.display = "flex";
+    }
+  }, [state?.cartItems]);
 
   return (
     <div className="cart-page inside-body">
@@ -44,6 +53,18 @@ const CartPage: FC<any> = (props) => {
           />
           <h1>Your cart</h1>
         </div>
+        <div ref={emptyCartRef} className="cart-page-section-empty-cart">
+          <img src="assets/sad.svg" alt="" />
+          <h3>Oops! your cart is empty</h3>
+          <br />
+          <button
+            onClick={() => {
+              nav(-1);
+            }}
+          >
+            Explore
+          </button>
+        </div>
         <section className="cart-page-items-section">
           {state?.cartItems.map((item: CartItemcardProps, index: number) => {
             return (
@@ -56,13 +77,8 @@ const CartPage: FC<any> = (props) => {
                 productQuantitySet={item.productQuantitySet}
                 index={index}
                 productId={item.productId}
-                updateCartTotal={() => {
-                  setTotal(totalPriceCalculator(state?.cartItems));
-                  console.log(state?.cartItems);
-                }}
                 onDelete={() => {
                   deleteItemFromCart(index, dispatch);
-                  // updateCartTotal(dispatch, state?.cartItems);
                 }}
               />
             );
@@ -71,7 +87,7 @@ const CartPage: FC<any> = (props) => {
       </section>
       <div className="total-price-footer">
         <h2>Total</h2>
-        <h3>Rs {total}</h3>
+        <h3>Rs {cartTotal}</h3>
       </div>
     </div>
   );

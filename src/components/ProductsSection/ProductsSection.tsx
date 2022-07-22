@@ -34,13 +34,14 @@ const ProductsSection: FC<any> = () => {
 
   useEffect(() => {
     console.log(state?.cartItems);
+    console.log(state?.activeFilters);
   });
 
   return (
     <section className="products-section">
       <h1>Shop</h1>
       <div className="products-section-items-grid">
-        {state?.productItems
+        {state?.filteredItems
           .filter(
             (item: any) =>
               item.name

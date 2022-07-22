@@ -13,7 +13,6 @@ interface CartItemcardProps {
   productQuantitySet: number;
   index: number;
   productId: number;
-  updateCartTotal: Function;
   onDelete: Function;
 }
 
@@ -25,11 +24,10 @@ const CartItemcard: FC<CartItemcardProps> = ({
   productQuantitySet,
   index,
   productId,
-  updateCartTotal,
   onDelete,
 }) => {
   const [quantity, setQuantity] = useState(productQuantitySet);
-  const { state, dispatch }: any = useContext(Context);
+  const { dispatch }: any = useContext(Context);
 
   useEffect(() => {
     updateCartItemQuantity(dispatch, index, quantity);
@@ -48,16 +46,6 @@ const CartItemcard: FC<CartItemcardProps> = ({
             onClick={() => {
               if (quantity !== 1) {
                 setQuantity((x: number) => x - 1);
-                // updateCartItemQuantity(dispatch, index, quantity).then(
-                //   (res) => {
-                //     updateQuantity();
-                //   },
-                // );
-                // dispatch({
-                //   type: "DECREASE_QUANTITY",
-                //   payload: index,
-                // });
-                //  updateCartTotal(dispatch, state?.cartItems);
               }
             }}
           >
@@ -69,16 +57,6 @@ const CartItemcard: FC<CartItemcardProps> = ({
             onClick={() => {
               if (quantity < productQuantity) {
                 setQuantity((x: number) => x + 1);
-                // updateCartItemQuantity(dispatch, index, quantity).then(
-                //   (res) => {
-                //     updateQuantity();
-                //   },
-                // );
-                // dispatch({
-                //   type: "INCREASE_QUANTITY",
-                //   payload: index,
-                // });
-                // updateCartTotal(dispatch, state?.cartItems);
               } else {
                 alert("Oops!! the product is out of stock");
               }
