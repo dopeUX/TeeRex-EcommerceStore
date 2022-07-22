@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "./main.css";
-import Context from "../../reducers/context";
+import Context from "../../store/context";
 import { Link } from "react-router-dom";
 
 export default function Header() {

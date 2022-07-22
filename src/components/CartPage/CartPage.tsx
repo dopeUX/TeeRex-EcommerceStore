@@ -1,13 +1,15 @@
-import React, { FC, useContext, useEffect } from "react";
-import Context from "../../reducers/context";
+import React, { FC, useContext, useEffect, useMemo, useState } from "react";
+import Context from "../../store/context";
 import CartItemcard from "../CartItemCard/CartItemCard";
 import "./main.css";
 import { useNavigate } from "react-router-dom";
+import deleteItemFromCart from "../../functions/deleteItemFromCart";
+import totalPriceCalculator from "../../functions/totalPriceCalculator";
 
 const CartPage: FC<any> = (props) => {
   const { state, dispatch }: any = useContext(Context);
   const nav = useNavigate();
-
+  const [total, setTotal] = useState(totalPriceCalculator(state?.cartItems));
   type url = string;
 
   interface CartItemcardProps {
@@ -15,11 +17,19 @@ const CartPage: FC<any> = (props) => {
     productName: string;
     productPrice: number;
     productQuantity: number;
+    productQuantitySet: number;
+    productId: number;
   }
 
-  useEffect(() => {
+  const cartTotal = useMemo(() => {
     console.log(state?.cartItems);
+    setTotal(totalPriceCalculator(state?.cartItems));
   }, [state?.cartItems]);
+
+  useEffect(() => {
+    // updateCartTotal(dispatch, state?.cartItems);
+    // setTotal()
+  }, []);
 
   return (
     <div className="cart-page inside-body">
@@ -43,17 +53,26 @@ const CartPage: FC<any> = (props) => {
                 productImage={item.productImage}
                 productPrice={item.productPrice}
                 productQuantity={item.productQuantity}
+                productQuantitySet={item.productQuantitySet}
+                index={index}
+                productId={item.productId}
+                updateCartTotal={() => {
+                  setTotal(totalPriceCalculator(state?.cartItems));
+                  console.log(state?.cartItems);
+                }}
                 onDelete={() => {
-                  dispatch({
-                    type: "DELETE_ITEM_FROM_CART",
-                    payload: index,
-                  });
+                  deleteItemFromCart(index, dispatch);
+                  // updateCartTotal(dispatch, state?.cartItems);
                 }}
               />
             );
           })}
         </section>
       </section>
+      <div className="total-price-footer">
+        <h2>Total</h2>
+        <h3>Rs {total}</h3>
+      </div>
     </div>
   );
 };

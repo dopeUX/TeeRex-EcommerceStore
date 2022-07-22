@@ -19,6 +19,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-bottom: 5rem;
 }
 
 .cart-page .cart-page-section .cart-page-section-header {
@@ -47,5 +48,29 @@
 
 .cart-page .cart-page-section .cart-page-items-section {
   display: block;
+}
+
+.cart-page .total-price-footer {
+  width: 50%;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: antiquewhite;
+  border-radius: 1rem;
+  bottom: 1.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1.5rem 3rem;
+}
+
+.cart-page .total-price-footer h2 {
+  margin: 0;
+}
+
+.cart-page .total-price-footer h3 {
+  color: #D43636;
+  margin: 0;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,6 +1,6 @@
 import React, { FC, useContext, useState } from "react";
 import onAddTocartListener from "../../functions/addToCartListener";
-import Context from "../../reducers/context";
+import Context from "../../store/context";
 import "./main.css";
 
 type url = string;
@@ -10,7 +10,7 @@ interface ProductItemCardProps {
   productPrice: number;
   productImage: url;
   productQuantity: number;
-  productId:number
+  productId: number;
 }
 
 const ProductItemCard: FC<ProductItemCardProps> = ({
@@ -18,9 +18,9 @@ const ProductItemCard: FC<ProductItemCardProps> = ({
   productPrice,
   productImage,
   productQuantity,
-  productId
+  productId,
 }) => {
-  const { dispatch }: any = useContext(Context);
+  const { state, dispatch }: any = useContext(Context);
 
   return (
     <div className="product-item-card">
@@ -38,9 +38,11 @@ const ProductItemCard: FC<ProductItemCardProps> = ({
               productImage,
               productPrice,
               productQuantity,
-              productId
+              productQuantitySet: 1,
+              productId,
             },
             dispatch,
+            state,
           );
         }}
       >

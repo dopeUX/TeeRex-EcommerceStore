@@ -26,9 +26,21 @@ const appReducer = (state, action)=>{
             cartItems:[...state.cartItems, action.payload]
         }
       case 'DELETE_ITEM_FROM_CART':
+        
         return {
            ...state,
-           
+           cartItems:[...state.cartItems.slice(0, action.payload), ...state.cartItems.slice(action.payload+1)]
+        }  
+      case 'UPDATE_CART_ITEM_QUANTITY':
+        state.cartItems[action.payload.index].productQuantitySet = action.payload.quantity;
+        return {
+          ...state,
+         cartItems:[...state.cartItems]
+        }   
+      case 'CART_TOTAL':
+        return {
+          ...state,
+          cartTotal:action.payload
         }  
       case 'SEARCH_QUERY':
         return {
@@ -46,7 +58,7 @@ const initialState = {
   count:3,
   searchQuery:'',
   productItems:[],
-  cartItems:[]
+  cartItems:[],
 }
 
 const useGlobalState = () =>{

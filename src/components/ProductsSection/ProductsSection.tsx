@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState, useContext } from "react";
 import getProductItems from "../../functions/getProductItems";
-import Context from "../../reducers/context";
+import Context from "../../store/context";
 import ProductItemCard from "../ProductItemCard/ProductItemCard";
 import "./main.css";
 
