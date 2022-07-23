@@ -10,6 +10,7 @@ import "./main.css";
 import FilterItemsArray from "../../FilterItemsArray";
 import Context from "../../store/context";
 import clearAllFilters from "../../functions/clearAllFilters";
+import * as constants from "../../constants/constants";
 
 const Filter = () => {
   const { state, dispatch }: any = useContext(Context);
@@ -20,14 +21,14 @@ const Filter = () => {
       console.log(window.innerWidth);
       if (window.innerWidth > 1022) {
         dispatch({
-          type: "UPDATE_DIALOG_STATE",
+          type: constants.updateDialogState,
           payload: {
             display: "block",
           },
         });
       } else {
         dispatch({
-          type: "UPDATE_DIALOG_STATE",
+          type: constants.updateDialogState,
           payload: {
             display: "none",
           },
@@ -62,7 +63,7 @@ const Filter = () => {
             alt=""
             onClick={() => {
               dispatch({
-                type: "UPDATE_DIALOG_STATE",
+                type: constants.updateDialogState,
                 payload: {
                   display: "none",
                 },

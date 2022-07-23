@@ -1,3 +1,4 @@
+import * as constants from "../constants/constants";
 
 type url = string;
 interface CartItem {
@@ -12,7 +13,7 @@ interface CartItem {
 const onAddTocartListener = (product: CartItem,dispatch:any, state:any) => {
    if(state?.cartItems.findIndex((item:any)=>item.productId===product.productId)===-1){
     dispatch({
-      type: "ADD_ITEM_TO_CART",
+      type: constants.addItemToCart,
       payload: product,
     });
     alert('Product added to cart successfully');

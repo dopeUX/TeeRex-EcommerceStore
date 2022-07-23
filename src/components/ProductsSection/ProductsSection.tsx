@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState, useContext } from "react";
+import * as constants from "../../constants/constants";
 import getProductItems from "../../functions/getProductItems";
 import Context from "../../store/context";
 import ProductItemCard from "../ProductItemCard/ProductItemCard";
@@ -23,7 +24,7 @@ const ProductsSection: FC<any> = () => {
         console.log(res);
         setProductItems(res);
         dispatch({
-          type: "PRODUCT_ITEMS_INIT",
+          type: constants.loadProductItems,
           payload: res,
         });
       })

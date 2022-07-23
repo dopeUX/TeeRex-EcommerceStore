@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import * as constants from '../constants/constants';
 
 const appReducer = (state, action)=>{
     switch(action.type){
@@ -14,31 +15,31 @@ const appReducer = (state, action)=>{
             ...state,
             count:state.count--
         }
-      case 'PRODUCT_ITEMS_INIT':
+      case constants.loadProductItems:
         return {
             ...state,
             productItems:action.payload,
             filteredItems:action.payload
         }
-      case 'ADD_ITEM_TO_CART':
+      case constants.addItemToCart:
         //state.cartItems.push(action.payload)
         return {
             ...state,
             cartItems:[...state.cartItems, action.payload]
         }
-      case 'DELETE_ITEM_FROM_CART':
+      case constants.deleteItemFromCart:
         
         return {
            ...state,
            cartItems:[...state.cartItems.slice(0, action.payload), ...state.cartItems.slice(action.payload+1)]
         }  
-      case 'UPDATE_CART_ITEM_QUANTITY':
+      case constants.updateCartItemQuantity:
         state.cartItems[action.payload.index].productQuantitySet = action.payload.quantity;
         return {
           ...state,
          cartItems:[...state.cartItems]
         }   
-      case 'FILTER_PRODUCT_ITEMS':
+      case constants.filterProductItems:
         /// if the filter is set to empty string, its gonna return full products or it will be returning filtered items;
         const arr = (filterType) => state.productItems.filter((item)=>{
              return state.activeFilters.color.toLowerCase()!==''?
@@ -64,14 +65,14 @@ const appReducer = (state, action)=>{
           ...state,
           filteredItems:arr()
         }  
-      case 'UPDATE_ACTIVE_FILTER' :
+      case constants.updateActiveFilter :
           let filterType = action.payload.filterType;
           state.activeFilters[filterType] = action.payload.filter
           return {
             ...state,
           }
 
-      case 'CLEAR_ALL_FILTERS' :
+      case constants.clearAllFilters :
         state.activeFilters.color = '';
         state.activeFilters.gender = '';
         state.activeFilters.price = 0;
@@ -80,7 +81,7 @@ const appReducer = (state, action)=>{
           ...state,
         }
             
-      case 'SEARCH_QUERY':
+      case constants.searchQuery:
         const query = action.payload;
         return {
             ...state,
@@ -98,7 +99,7 @@ const appReducer = (state, action)=>{
                   .includes(query.toLowerCase()),
             )
         }
-        case 'UPDATE_DIALOG_STATE':
+        case constants.updateDialogState:
           return {
             ...state,
             filterDialogStyle:action.payload

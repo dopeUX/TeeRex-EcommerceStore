@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import updateActiveFilters from "../../functions/updateActiveFilters";
 import filterBySearch from "../../functions/filterbySearch";
 import { useLocation } from "react-router-dom";
+import * as constants from "../../constants/constants";
 
 export default function Header() {
   // const { globalState, globalDispatch } = useContext(Context);
@@ -46,7 +47,7 @@ export default function Header() {
           alt=""
           onClick={() => {
             dispatch({
-              type: "UPDATE_DIALOG_STATE",
+              type: constants.updateDialogState,
               payload: {
                 display: "block",
               },

@@ -1,10 +1,11 @@
+import * as constants from "../constants/constants";
 
 const clearAllFilters = (dispatch:Function) =>{
     dispatch({
-        type: "CLEAR_ALL_FILTERS",
+        type: constants.clearAllFilters,
       });
     dispatch({
-        type: "FILTER_PRODUCT_ITEMS",
+        type: constants.filterProductItems,
     });
 }
 

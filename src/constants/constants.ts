@@ -1,0 +1,9 @@
+export const loadProductItems:string = 'PRODUCT_ITEMS_INIT';
+export const addItemToCart:string = 'ADD_ITEM_TO_CART';
+export const deleteItemFromCart:string = 'DELETE_ITEM_FROM_CART';
+export const updateCartItemQuantity:string = 'UPDATE_CART_ITEM_QUANTITY';
+export const filterProductItems:string = 'FILTER_PRODUCT_ITEMS';
+export const updateActiveFilter:string = 'UPDATE_ACTIVE_FILTER';
+export const clearAllFilters:string = 'CLEAR_ALL_FILTERS';
+export const searchQuery:string = 'SEARCH_QUERY';
+export const updateDialogState:string = 'UPDATE_DIALOG_STATE';

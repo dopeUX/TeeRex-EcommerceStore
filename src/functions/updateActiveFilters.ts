@@ -1,14 +1,15 @@
+import * as constants from "../constants/constants";
 
 const updateActiveFilters = (dispatch:any,filterTitle:string, filter:string) =>{
     dispatch({
-        type: "UPDATE_ACTIVE_FILTER",
+        type: constants.updateActiveFilter,
         payload: {
           filterType: filterTitle.toLowerCase(),
           filter: filter,
         },
       });
       dispatch({
-        type: "FILTER_PRODUCT_ITEMS",
+        type: constants.filterProductItems,
       });
 }
 

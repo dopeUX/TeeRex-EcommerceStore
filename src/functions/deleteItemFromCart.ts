@@ -1,7 +1,8 @@
+import * as constants from "../constants/constants";
 
 const deleteItemFromCart = (index:number, dispatch:Function) =>{
     dispatch({
-        type: "DELETE_ITEM_FROM_CART",
+        type: constants.deleteItemFromCart,
         payload: index,
       });
 }
