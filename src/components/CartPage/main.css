@@ -19,7 +19,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-bottom: 5rem;
+  padding-bottom: 7rem;
 }
 
 .cart-page .cart-page-section .cart-page-section-header {
@@ -32,6 +32,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 1rem;
+  margin-left: 2rem;
   margin-bottom: 1.3rem;
 }
 
@@ -118,5 +120,11 @@
 .cart-page .total-price-footer h3 {
   color: #D43636;
   margin: 0;
+}
+
+@media only screen and (min-width: 870px) {
+  .cart-page .cart-page-section .cart-page-section-header {
+    margin-top: 1rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */

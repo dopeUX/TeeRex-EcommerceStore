@@ -33,12 +33,15 @@ const CartPage: FC<any> = (props) => {
     () => totalPriceCalculator(state?.cartItems),
     [state?.cartItems],
   );
+  const searchSectionRef: any = useRef();
 
   useEffect(() => {
     if (state?.cartItems.length === 0) {
       emptyCartRef.current.style.display = "flex";
     }
   }, [state?.cartItems]);
+
+  useEffect(() => {});
 
   return (
     <div className="cart-page inside-body">

@@ -7,22 +7,26 @@ import "./main.css";
 interface FilterCardProps {
   filterTitle: string;
   filterItems: Array<string>;
+  activeIndex: number | null;
   onClick: Function;
 }
 
 const FilterCard: FC<FilterCardProps> = ({
   filterTitle,
   filterItems,
+  activeIndex,
   onClick,
 }) => {
-  const [activeIndex, setActiveIndex] = useState<Number | null>();
+  const [activeIndexMenu, setActiveIndexMenu] = useState<Number | null>(
+    activeIndex,
+  );
   const { state, dispatch }: any = useContext(Context);
 
   useEffect(() => {
     console.log(state.activeFilters);
   });
   return (
-    <div className="filter-card">
+    <div className="filter-card" key={activeIndex}>
       <h4>{filterTitle}</h4>
       {filterItems.map((item, index) => {
         return (
@@ -31,9 +35,9 @@ const FilterCard: FC<FilterCardProps> = ({
             className="filter-card-single-item"
             onClick={() => {
               filterBySearch(dispatch, ""); ///// setting the search query to empty string ----
-              if (index === activeIndex) {
+              if (index === activeIndexMenu) {
                 ///clearing the filter if the current filter is active
-                setActiveIndex(null);
+                setActiveIndexMenu(null);
                 updateActiveFilters(dispatch, filterTitle, "");
               } else {
                 ///updating the filter
@@ -43,17 +47,17 @@ const FilterCard: FC<FilterCardProps> = ({
           >
             <small
               className={`filter-card-single-item-desc ${
-                index === activeIndex ? "active" : "inactive"
+                index === activeIndexMenu ? "active" : "inactive"
               }`}
               onClick={() => {
-                setActiveIndex(index);
+                setActiveIndexMenu(index);
               }}
             >
               {item}
             </small>
             <div
               className={`filter-card-single-item-dot ${
-                index === activeIndex && "active-dot"
+                index === activeIndexMenu && "active-dot"
               }`}
             ></div>
           </div>

@@ -1,8 +1,46 @@
 .filter{
-   display: none; 
-   margin: 0 auto 0 1.7rem;
-   float: left;
-   padding-top: 6.5em;
+   width: 100%; 
+   display: block;
+   z-index: 5;
+   position: fixed;
+   justify-content: center; 
+   padding: 2rem;
+   overflow-y: scroll;
+   box-sizing: content-box;
+   margin: 1rem auto 1rem auto;
+   background-color: rgba(37, 37, 37, 0.407);
+//    margin: 0 auto 0 1.7rem;
+//    padding-top: 6.5em;
+
+    .filter-child{
+        height: 70vh;
+        width: fit-content;
+     background-color: white;
+     margin: 2rem auto; 
+     padding: 2rem;
+     overflow-y: scroll;
+     border-radius: 2rem;
+     box-sizing: content-box;
+
+     .filter-header{
+        display: block;
+        position: relative;
+
+        h3{
+            color: #D43636;
+            font-size: .8rem;
+        }
+        img{
+            width: 40px;
+            height: 40px;
+            display: flex;
+            position: absolute;
+            top: .5rem;
+            right: 0;
+            cursor: pointer;
+        }
+     }
+
     h2{
         margin: 0;
         padding: 0;
@@ -17,22 +55,51 @@
         margin-top: 1rem;
         background-color: #F2F2F2;
     }
+  }
 }
 
 @media only screen and (min-width:1022px){
     .filter{
         top: 0;
-        bottom: 0;
+        bottom: 5rem;
+        width: fit-content;
         display: block;
         position: fixed;
+        float: left;
+        margin:0;
+        height:85%;
+        background-color: transparent;
+           margin-bottom: 2rem;
+         padding-top: 6.5em;
+         overflow: hidden;
         //overflow-y: scroll;
+        padding-bottom: 5rem;
 
         .filter-child{
             width: 100%;
             height: 100%;
-            overflow-y: scroll;
-            padding-right: 0px; /* Increase/decrease this value for cross-browser compatibility */
+            margin: 0;
+            border-radius: 0;
+            // overflow-y: scroll;
+            padding:0; /* Increase/decrease this value for cross-browser compatibility */
+            margin-bottom: 5rem;
+            background-color: transparent;
             box-sizing: content-box;
+
+            .filter-header{
+                display: flex;
+                justify-content: space-between;
+
+                h3{
+                    color: #D43636;
+                    margin: .7rem 1rem;
+                    font-size: .9rem;
+                    cursor: pointer;
+                }
+               img{
+                display: none;
+               }
+            }
         }
     }
 }

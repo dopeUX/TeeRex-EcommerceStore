@@ -70,6 +70,16 @@ const appReducer = (state, action)=>{
           return {
             ...state,
           }
+
+      case 'CLEAR_ALL_FILTERS' :
+        state.activeFilters.color = '';
+        state.activeFilters.gender = '';
+        state.activeFilters.price = 0;
+        state.activeFilters.type = '';
+        return {
+          ...state,
+        }
+            
       case 'SEARCH_QUERY':
         const query = action.payload;
         return {
@@ -96,7 +106,7 @@ const appReducer = (state, action)=>{
 
 
 const initialState = {
-  count:3,
+  count:1,
   searchQuery:'',
   productItems:[],
   filteredItems:[],
@@ -106,7 +116,7 @@ const initialState = {
     price:0,
     gender:'',
     type:''
-  }
+  },
 }
 
 const useGlobalState = () =>{

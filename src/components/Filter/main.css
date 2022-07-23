@@ -1,17 +1,62 @@
 .filter {
-  display: none;
-  margin: 0 auto 0 1.7rem;
-  float: left;
-  padding-top: 6.5em;
+  width: 100%;
+  display: block;
+  z-index: 5;
+  position: fixed;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2rem;
+  overflow-y: scroll;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  margin: 1rem auto 1rem auto;
+  background-color: rgba(37, 37, 37, 0.407);
 }
 
-.filter h2 {
+.filter .filter-child {
+  height: 70vh;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: white;
+  margin: 2rem auto;
+  padding: 2rem;
+  overflow-y: scroll;
+  border-radius: 2rem;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.filter .filter-child .filter-header {
+  display: block;
+  position: relative;
+}
+
+.filter .filter-child .filter-header h3 {
+  color: #D43636;
+  font-size: .8rem;
+}
+
+.filter .filter-child .filter-header img {
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: .5rem;
+  right: 0;
+  cursor: pointer;
+}
+
+.filter .filter-child h2 {
   margin: 0;
   padding: 0;
   font-size: 1.5rem;
 }
 
-.filter .filter-sections {
+.filter .filter-child .filter-sections {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -27,18 +72,49 @@
 @media only screen and (min-width: 1022px) {
   .filter {
     top: 0;
-    bottom: 0;
+    bottom: 5rem;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     display: block;
     position: fixed;
+    float: left;
+    margin: 0;
+    height: 85%;
+    background-color: transparent;
+    margin-bottom: 2rem;
+    padding-top: 6.5em;
+    overflow: hidden;
+    padding-bottom: 5rem;
   }
   .filter .filter-child {
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
-    padding-right: 0px;
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
     /* Increase/decrease this value for cross-browser compatibility */
+    margin-bottom: 5rem;
+    background-color: transparent;
     -webkit-box-sizing: content-box;
             box-sizing: content-box;
+  }
+  .filter .filter-child .filter-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .filter .filter-child .filter-header h3 {
+    color: #D43636;
+    margin: .7rem 1rem;
+    font-size: .9rem;
+    cursor: pointer;
+  }
+  .filter .filter-child .filter-header img {
+    display: none;
   }
 }
 /*# sourceMappingURL=main.css.map */
