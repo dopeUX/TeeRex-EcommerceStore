@@ -12,7 +12,6 @@ const Filter = () => {
 
   useLayoutEffect(() => {
     window.addEventListener("resize", () => {
-      console.log(window.innerWidth);
       if (window.innerWidth > 1022) {
         dispatch({
           type: constants.updateDialogState,

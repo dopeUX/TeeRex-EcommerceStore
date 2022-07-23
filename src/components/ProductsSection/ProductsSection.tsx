@@ -20,7 +20,6 @@ const ProductsSection: FC<any> = () => {
   useEffect(() => {
     getProductItems()
       .then((res) => {
-        console.log(res);
         dispatch({
           type: constants.loadProductItems,
           payload: res,
