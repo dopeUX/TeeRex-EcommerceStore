@@ -6,7 +6,8 @@ Features -
 
 - All features are implemented on client side.
 - State management is done using use context and use reducer api.
-- Built using Sass.
+- Built completely with Typescript.
+- Sass framework used.
 - Fully Responsive.
 - Clean and reusable code.
 - Cart items state remains unchanged when switched between routes.
