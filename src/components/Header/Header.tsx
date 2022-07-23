@@ -55,17 +55,6 @@ export default function Header() {
           }}
         />
       </section>
-      {/* ///FOR debugging ------ */}
-      {/* <button
-        onClick={() => {
-          dispatch({
-            type: "DECREMENT",
-          });
-        }}
-      >
-        Click
-      </button>
-      <h1>{state?.count}</h1> */}
     </header>
   );
 }
