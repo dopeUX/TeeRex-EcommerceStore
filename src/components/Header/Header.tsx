@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useLayoutEffect, useRef, useState } from "react";
 import "./main.css";
 import Context from "../../store/context";
 import { Link } from "react-router-dom";
@@ -12,7 +12,7 @@ export default function Header() {
   const searchSectionRef: any = useRef();
   const location = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // console.log(state?.count);
     // console.log(state?.searchQuery);
     if (window.location.href === "http://localhost:3000/cart") {
@@ -41,7 +41,18 @@ export default function Header() {
             filterBySearch(dispatch, e.currentTarget.value);
           }}
         />
-        <img src="assets/filter.svg" alt="" />
+        <img
+          src="assets/filter.svg"
+          alt=""
+          onClick={() => {
+            dispatch({
+              type: "UPDATE_DIALOG_STATE",
+              payload: {
+                display: "block",
+              },
+            });
+          }}
+        />
       </section>
       {/* ///FOR debugging ------ */}
       {/* <button

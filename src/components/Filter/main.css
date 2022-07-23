@@ -1,6 +1,5 @@
 .filter {
   width: 100%;
-  display: block;
   z-index: 5;
   position: fixed;
   -webkit-box-pack: center;
@@ -116,5 +115,9 @@
   .filter .filter-child .filter-header img {
     display: none;
   }
+}
+
+.hide-dialogue {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

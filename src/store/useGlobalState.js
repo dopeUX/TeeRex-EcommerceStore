@@ -98,6 +98,11 @@ const appReducer = (state, action)=>{
                   .includes(query.toLowerCase()),
             )
         }
+        case 'UPDATE_DIALOG_STATE':
+          return {
+            ...state,
+            filterDialogStyle:action.payload
+          }
       default:{
         return state;
       } 
@@ -117,6 +122,7 @@ const initialState = {
     gender:'',
     type:''
   },
+  filterDialogStyle:{}
 }
 
 const useGlobalState = () =>{

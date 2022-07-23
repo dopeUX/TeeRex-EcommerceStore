@@ -1,6 +1,6 @@
 .filter{
    width: 100%; 
-   display: block;
+//    display: none;
    z-index: 5;
    position: fixed;
    justify-content: center; 
@@ -102,4 +102,8 @@
             }
         }
     }
+}
+
+.hide-dialogue{
+  display: none;
 }
