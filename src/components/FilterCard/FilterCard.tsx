@@ -1,4 +1,5 @@
-import React, { FC, useState, useContext } from "react";
+import React, { FC, useState, useContext, useEffect } from "react";
+import updateActiveFilters from "../../functions/updateActiveFilters";
 import Context from "../../store/context";
 import "./main.css";
 
@@ -13,8 +14,12 @@ const FilterCard: FC<FilterCardProps> = ({
   filterItems,
   onClick,
 }) => {
-  const [activeIndex, setActiveIndex] = useState<Number>();
-  const { dispatch }: any = useContext(Context);
+  const [activeIndex, setActiveIndex] = useState<Number | null>();
+  const { state, dispatch }: any = useContext(Context);
+
+  useEffect(() => {
+    console.log(state.activeFilters);
+  });
   return (
     <div className="filter-card">
       <h4>{filterTitle}</h4>
@@ -24,25 +29,14 @@ const FilterCard: FC<FilterCardProps> = ({
             key={index}
             className="filter-card-single-item"
             onClick={() => {
-              // dispatch({
-              //   type: "FILTER_PRODUCT_ITEMS",
-              //   payload: {
-              //     filterType: filterTitle.toLowerCase(),
-              //     filter: item,
-              //   },
-              // });
-
-              // console.log("rfreg");
-              dispatch({
-                type: "UPDATE_ACTIVE_FILTER",
-                payload: {
-                  filterType: filterTitle.toLowerCase(),
-                  filter: item,
-                },
-              });
-              dispatch({
-                type: "FILTER_PRODUCT_ITEMS",
-              });
+              if (index === activeIndex) {
+                ///clearing the filter if the current filter is active
+                setActiveIndex(null);
+                updateActiveFilters(dispatch, filterTitle, "");
+              } else {
+                ///updating the filter
+                updateActiveFilters(dispatch, filterTitle, item);
+              }
             }}
           >
             <small

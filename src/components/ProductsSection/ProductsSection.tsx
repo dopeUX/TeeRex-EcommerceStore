@@ -35,7 +35,10 @@ const ProductsSection: FC<any> = () => {
   useEffect(() => {
     console.log(state?.cartItems);
     console.log(state?.activeFilters);
-  });
+    // dispatch({
+    //   type: "FILTER_PRODUCT_ITEMS",
+    // });
+  }, [state?.activeFilters]);
 
   return (
     <section className="products-section">

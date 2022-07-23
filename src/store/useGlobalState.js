@@ -39,12 +39,17 @@ const appReducer = (state, action)=>{
          cartItems:[...state.cartItems]
         }   
       case 'FILTER_PRODUCT_ITEMS':
-        // state.activeFilters[action.payload.filterTitle]=action.payload.filter;
-        // const filterType = action.payload.filterType;
+        /// if the filter is set to empty string, its gonna return full products or it will be returning filtered items;
+        const arr = (filterType) => state.productItems.filter((item)=>{
+             return state.activeFilters.color.toLowerCase()!==''?
+           item.color.toLowerCase()===state.activeFilters.color.toLowerCase():state.productItems}).filter((item)=>{
+            return state.activeFilters.gender.toLowerCase()!==''?
+            item.gender.toLowerCase()===state.activeFilters.gender.toLowerCase():state.productItems}).filter((item)=>{
+              return state.activeFilters.type.toLowerCase()!==''?
+              item.type.toLowerCase()===state.activeFilters.type.toLowerCase():state.productItems});
         return {
           ...state,
-          // activeFilters:state.activeFilters,
-          filteredItems:state.productItems.filter(item=>item.color.toLowerCase().includes(state.activeFilters.color.toLowerCase())).filter(item=>item.gender.toLowerCase().includes(state.activeFilters.gender.toLowerCase())).filter(item=>item.type.toLowerCase().includes(state.activeFilters.type.toLowerCase()))
+          filteredItems:arr()
         }  
       case 'UPDATE_ACTIVE_FILTER' :
           let filterType = action.payload.filterType;
