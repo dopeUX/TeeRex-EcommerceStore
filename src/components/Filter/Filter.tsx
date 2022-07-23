@@ -6,11 +6,15 @@ import FilterItemsArray from "../../FilterItemsArray";
 const Filter = () => {
   return (
     <section className="filter">
-      <h2>Filter</h2>
+      <section className="filter-child">
+        <div className="filter-header">
+          <h2>Filter</h2>
+        </div>
 
-      <div className="filter-sections">
-        <FilterCardItems filterItems={FilterItemsArray} />
-      </div>
+        <div className="filter-sections">
+          <FilterCardItems filterItems={FilterItemsArray} />
+        </div>
+      </section>
     </section>
   );
 };

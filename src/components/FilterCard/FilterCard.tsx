@@ -1,4 +1,5 @@
 import React, { FC, useState, useContext, useEffect } from "react";
+import filterBySearch from "../../functions/filterbySearch";
 import updateActiveFilters from "../../functions/updateActiveFilters";
 import Context from "../../store/context";
 import "./main.css";
@@ -29,6 +30,7 @@ const FilterCard: FC<FilterCardProps> = ({
             key={index}
             className="filter-card-single-item"
             onClick={() => {
+              filterBySearch(dispatch, ""); ///// setting the search query to empty string ----
               if (index === activeIndex) {
                 ///clearing the filter if the current filter is active
                 setActiveIndex(null);

@@ -35,12 +35,13 @@ header{
     justify-content: space-between;
     padding: 0 1.4rem;
  .search{
-    width: 70%;
-    height: fit;
+    width: 80%;
+    height: fit-content;
     display: block;
     padding: 1rem;
     margin-bottom: .5rem;
     border-radius: 1rem;
+    margin-left: 5rem;
     outline: none;
     border:2px solid rgb(187, 185, 185);
 

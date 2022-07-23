@@ -43,6 +43,19 @@ const appReducer = (state, action)=>{
         const arr = (filterType) => state.productItems.filter((item)=>{
              return state.activeFilters.color.toLowerCase()!==''?
            item.color.toLowerCase()===state.activeFilters.color.toLowerCase():state.productItems}).filter((item)=>{
+             if(state.activeFilters.price!==0){
+               if(state.activeFilters.price==='0 - Rs.250'){
+                return item.price<=250;
+               }
+               else if(state.activeFilters.price==='Rs.251-450'){
+                return item.price>=251 && item.price<=450;
+               }
+               else if(state.activeFilters.price==='Rs.451'){
+                return item.price>=451;
+              }
+             }
+             return state.productItems;
+           }).filter((item)=>{
             return state.activeFilters.gender.toLowerCase()!==''?
             item.gender.toLowerCase()===state.activeFilters.gender.toLowerCase():state.productItems}).filter((item)=>{
               return state.activeFilters.type.toLowerCase()!==''?
@@ -58,9 +71,22 @@ const appReducer = (state, action)=>{
             ...state,
           }
       case 'SEARCH_QUERY':
+        const query = action.payload;
         return {
             ...state,
-            searchQuery:action.payload
+            searchQuery:query,
+            filteredItems:state.productItems.filter(
+              (item) =>
+                item.name
+                  .toLowerCase()
+                  .includes(query.toLowerCase()) ||
+                item.color
+                  .toLowerCase()
+                  .includes(query.toLowerCase()) ||
+                item.type
+                  .toLowerCase()
+                  .includes(query.toLowerCase()),
+            )
         }
       default:{
         return state;
@@ -77,6 +103,7 @@ const initialState = {
   cartItems:[],
   activeFilters:{
     color:'',
+    price:0,
     gender:'',
     type:''
   }

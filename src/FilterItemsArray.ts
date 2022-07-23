@@ -6,6 +6,12 @@ const FilterItemsArray = [
     ]
   },
   {
+    title:'Price',
+    items:[
+      '0 - Rs.250', 'Rs.251-450', 'Rs.451'
+    ]
+  },
+  {
     title:'Gender',
     items: [
       'Men', 'Women'

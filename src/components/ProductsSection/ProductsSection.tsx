@@ -44,31 +44,18 @@ const ProductsSection: FC<any> = () => {
     <section className="products-section">
       <h1>Shop</h1>
       <div className="products-section-items-grid">
-        {state?.filteredItems
-          .filter(
-            (item: any) =>
-              item.name
-                .toLowerCase()
-                .includes(state?.searchQuery.toLowerCase()) ||
-              item.color
-                .toLowerCase()
-                .includes(state?.searchQuery.toLowerCase()) ||
-              item.type
-                .toLowerCase()
-                .includes(state?.searchQuery.toLowerCase()),
-          )
-          .map((item: ProductItem, index: number) => {
-            return (
-              <ProductItemCard
-                key={index}
-                productName={item.name}
-                productPrice={item.price}
-                productImage={item.imageURL}
-                productQuantity={item.quantity}
-                productId={item.id}
-              />
-            );
-          })}
+        {state?.filteredItems.map((item: ProductItem, index: number) => {
+          return (
+            <ProductItemCard
+              key={index}
+              productName={item.name}
+              productPrice={item.price}
+              productImage={item.imageURL}
+              productQuantity={item.quantity}
+              productId={item.id}
+            />
+          );
+        })}
       </div>
     </section>
   );

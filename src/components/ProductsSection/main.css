@@ -32,10 +32,13 @@
 
 @media only screen and (min-width: 1022px) {
   .products-section {
-    margin-left: 20.5rem;
+    margin-left: 21rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+  .products-section h1 {
+    margin-left: 1rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

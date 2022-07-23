@@ -57,12 +57,15 @@ header {
 }
 
 .header-search-section .search {
-  width: 70%;
-  height: fit;
+  width: 80%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   display: block;
   padding: 1rem;
   margin-bottom: .5rem;
   border-radius: 1rem;
+  margin-left: 5rem;
   outline: none;
   border: 2px solid #bbb9b9;
 }

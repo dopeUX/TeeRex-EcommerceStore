@@ -26,8 +26,19 @@
 
 @media only screen and (min-width: 1022px) {
   .filter {
+    top: 0;
+    bottom: 0;
     display: block;
     position: fixed;
+  }
+  .filter .filter-child {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 0px;
+    /* Increase/decrease this value for cross-browser compatibility */
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
   }
 }
 /*# sourceMappingURL=main.css.map */

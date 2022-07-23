@@ -1,15 +1,19 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./main.css";
 import Context from "../../store/context";
 import { Link } from "react-router-dom";
+import updateActiveFilters from "../../functions/updateActiveFilters";
+import filterBySearch from "../../functions/filterbySearch";
 
 export default function Header() {
   // const { globalState, globalDispatch } = useContext(Context);
   const { state, dispatch }: any = useContext(Context);
+
   useEffect(() => {
     console.log(state?.count);
     console.log(state?.searchQuery);
   });
+
   return (
     <header>
       <section className="header-top">
@@ -23,11 +27,9 @@ export default function Header() {
           type="text"
           className="search"
           placeholder="search here..."
+          value={state?.searchQuery}
           onChange={(e) => {
-            dispatch({
-              type: "SEARCH_QUERY",
-              payload: e.currentTarget.value,
-            });
+            filterBySearch(dispatch, e.currentTarget.value);
           }}
         />
         <img src="assets/filter.svg" alt="" />
