@@ -1,4 +1,4 @@
-import React, { FC, useState, useContext, useEffect } from "react";
+import { FC, useState, useContext, useEffect } from "react";
 import filterBySearch from "../../functions/filterbySearch";
 import updateActiveFilters from "../../functions/updateActiveFilters";
 import Context from "../../store/context";
@@ -15,7 +15,6 @@ const FilterCard: FC<FilterCardProps> = ({
   filterTitle,
   filterItems,
   activeIndex,
-  onClick,
 }) => {
   const [activeIndexMenu, setActiveIndexMenu] = useState<Number | null>(
     activeIndex,

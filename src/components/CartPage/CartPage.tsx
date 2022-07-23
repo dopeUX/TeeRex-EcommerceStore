@@ -1,25 +1,22 @@
-import React, {
+import {
   FC,
   useContext,
   useLayoutEffect,
   useRef,
   useMemo,
-  useState,
 } from "react";
 import Context from "../../store/context";
 import CartItemcard from "../CartItemCard/CartItemCard";
 import "./main.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import deleteItemFromCart from "../../functions/deleteItemFromCart";
 import totalPriceCalculator from "../../functions/totalPriceCalculator";
 
-const CartPage: FC<any> = (props) => {
+const CartPage: FC<any> = () => {
   const { state, dispatch }: any = useContext(Context);
   const emptyCartRef: any = useRef();
   const nav = useNavigate();
-  // const [total, setTotal] = useState(totalPriceCalculator(state?.cartItems));
   type url = string;
-
   interface CartItemcardProps {
     productImage: url;
     productName: string;

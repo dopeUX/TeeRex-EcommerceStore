@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState } from "react";
+import { FC, useContext } from "react";
 import onAddTocartListener from "../../functions/addToCartListener";
 import Context from "../../store/context";
 import "./main.css";

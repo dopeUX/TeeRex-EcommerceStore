@@ -1,6 +1,5 @@
 .filter{
    width: 100%; 
-//    display: none;
    z-index: 5;
    position: fixed;
    justify-content: center; 
@@ -9,8 +8,6 @@
    box-sizing: content-box;
    margin: 1rem auto 1rem auto;
    background-color: rgba(37, 37, 37, 0.407);
-//    margin: 0 auto 0 1.7rem;
-//    padding-top: 6.5em;
 
     .filter-child{
         height: 70vh;
@@ -69,10 +66,9 @@
         margin:0;
         height:85%;
         background-color: transparent;
-           margin-bottom: 2rem;
-         padding-top: 6.5em;
-         overflow: hidden;
-        //overflow-y: scroll;
+        margin-bottom: 2rem;
+        padding-top: 6.5em;
+        overflow: hidden;
         padding-bottom: 5rem;
 
         .filter-child{
@@ -80,8 +76,7 @@
             height: 100%;
             margin: 0;
             border-radius: 0;
-            // overflow-y: scroll;
-            padding:0; /* Increase/decrease this value for cross-browser compatibility */
+            padding:0;
             margin-bottom: 5rem;
             background-color: transparent;
             box-sizing: content-box;

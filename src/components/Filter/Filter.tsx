@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useState,
-} from "react";
+import { useContext, useLayoutEffect, useState } from "react";
 import FilterCardItems from "../FilterCardItems/FilterCardItems";
 import "./main.css";
 import FilterItemsArray from "../../FilterItemsArray";

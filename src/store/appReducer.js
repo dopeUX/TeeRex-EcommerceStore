@@ -10,7 +10,6 @@ const appReducer = (state, action)=>{
             filteredItems:action.payload
         }
       case constants.addItemToCart:
-        //state.cartItems.push(action.payload)
         return {
             ...state,
             cartItems:[...state.cartItems, action.payload]

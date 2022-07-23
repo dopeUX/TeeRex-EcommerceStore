@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import updateCartItemQuantity from "../../functions/updateCartItemQuantity";
 import Context from "../../store/context";
 import "./main.css";
@@ -23,7 +23,6 @@ const CartItemcard: FC<CartItemcardProps> = ({
   productQuantity,
   productQuantitySet,
   index,
-  productId,
   onDelete,
 }) => {
   const [quantity, setQuantity] = useState(productQuantitySet);

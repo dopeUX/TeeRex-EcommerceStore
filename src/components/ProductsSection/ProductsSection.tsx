@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useContext } from "react";
+import { FC, useEffect, useContext } from "react";
 import * as constants from "../../constants/constants";
 import getProductItems from "../../functions/getProductItems";
 import Context from "../../store/context";
@@ -16,13 +16,11 @@ interface ProductItem {
 }
 
 const ProductsSection: FC<any> = () => {
-  const [productItems, setProductItems] = useState<any>([])!;
   const { state, dispatch }: any = useContext(Context);
   useEffect(() => {
     getProductItems()
       .then((res) => {
         console.log(res);
-        setProductItems(res);
         dispatch({
           type: constants.loadProductItems,
           payload: res,
@@ -32,14 +30,6 @@ const ProductsSection: FC<any> = () => {
         alert(err);
       });
   }, []); ///=> called only on initial render ----
-
-  useEffect(() => {
-    console.log(state?.cartItems);
-    console.log(state?.activeFilters);
-    // dispatch({
-    //   type: "FILTER_PRODUCT_ITEMS",
-    // });
-  }, [state?.activeFilters]);
 
   return (
     <section className="products-section">

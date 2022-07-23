@@ -92,7 +92,6 @@
     margin: 0;
     border-radius: 0;
     padding: 0;
-    /* Increase/decrease this value for cross-browser compatibility */
     margin-bottom: 5rem;
     background-color: transparent;
     -webkit-box-sizing: content-box;

@@ -1,27 +1,22 @@
-import React, { useContext, useLayoutEffect, useRef, useState } from "react";
+import { useContext, useLayoutEffect, useRef } from "react";
 import "./main.css";
 import Context from "../../store/context";
 import { Link } from "react-router-dom";
-import updateActiveFilters from "../../functions/updateActiveFilters";
 import filterBySearch from "../../functions/filterbySearch";
 import { useLocation } from "react-router-dom";
 import * as constants from "../../constants/constants";
 
 export default function Header() {
-  // const { globalState, globalDispatch } = useContext(Context);
   const { state, dispatch }: any = useContext(Context);
   const searchSectionRef: any = useRef();
   const location = useLocation();
 
   useLayoutEffect(() => {
-    // console.log(state?.count);
-    // console.log(state?.searchQuery);
     if (window.location.href === "http://localhost:3000/cart") {
       searchSectionRef.current.style.display = "none";
     } else {
       searchSectionRef.current.style.display = "flex";
     }
-    // console.log("Location changed");
   }, [location]);
 
   return (
