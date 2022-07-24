@@ -1,5 +1,18 @@
 # Getting Started with Create React App
 
+![frame](https://user-images.githubusercontent.com/93445494/180613523-4453efb3-8f0c-4523-8796-276d77ff6a48.png)
+
+Features - 
+
+- All features are implemented on client side.
+- State management is done using use context and use reducer api.
+- Built completely with Typescript.
+- Sass framework used.
+- Fully Responsive.
+- Clean and reusable code.
+- Cart items state remains unchanged when switched between routes.
+- Performance optimized.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
