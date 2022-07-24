@@ -26,22 +26,29 @@
           }
        }
        .cart-page-section-empty-cart{
-        display: none;
-        flex-wrap: wrap;
-        position: relative;
-       img{
-        width: 90px;
-       } 
-       h3{
-        margin-left: 2rem;
-        font-size: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        // flex-wrap: wrap;
+        // position: relative;
+
+       div{ 
+        width: fit-content;
+        display: flex;
+         img{
+          width: 90px;
+         } 
+         h3{
+          margin-left: 2rem;
+          font-size: 1.5rem;
+         }
        }
        button{
-        display: inline-block;
-        clear: both;
+        display: block;
         width: fit-content;
-        margin: auto;
-        position: absolute;
+        height: fit-content;
+        // position: absolute;
+        margin:1rem auto;
         background-color: #D43636;
         border-radius: .6rem;
         color: white;
@@ -51,9 +58,7 @@
         padding: 1rem 2rem;
         cursor: pointer;
         outline: none;
-        left: 0;
-        right: 0;
-        margin: 7rem auto 0 auto;
+        // margin: 7rem auto 0 auto;
 
         &:hover{
           color: #D43636;

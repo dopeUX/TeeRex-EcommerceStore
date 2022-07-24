@@ -51,9 +51,10 @@ const CartPage: FC<any> = () => {
           <h1>Your cart</h1>
         </div>
         <div ref={emptyCartRef} className="cart-page-section-empty-cart">
-          <img src="assets/sad.svg" alt="" />
-          <h3>Oops! your cart is empty</h3>
-          <br />
+          <div>
+           <img src="assets/sad.svg" alt="" />
+           <h3>Oops! your cart is empty</h3>
+          </div>
           <button
             onClick={() => {
               nav(-1);

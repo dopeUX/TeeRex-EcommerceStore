@@ -35,6 +35,7 @@
 .filter .filter-child .filter-header h3 {
   color: #D43636;
   font-size: .8rem;
+  cursor: pointer;
 }
 
 .filter .filter-child .filter-header img {
